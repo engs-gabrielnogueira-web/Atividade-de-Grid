@@ -1,17 +1,88 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
 .container {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  grid-template-rows: 70px 1fr 50px;
-  grid-template-areas: 
-    "header header"
-    "aside main"
-    "footer footer";
-  height: 100vh;
-  gap: 5px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 80px 1fr 60px;
+    grid-template-areas: 
+        "header header"
+        "aside main"
+        "footer footer";
+    height: 100vh;
 }
 
-header { grid-area: header; background: #2c3e50; color: white; display: flex; align-items: center; padding-left: 20px; }
-aside  { grid-area: aside;  background: #f4f4f4; padding-top: 20px; }
-main   { grid-area: main;   background: #fff; padding: 20px; }
-footer { grid-area: footer; background: #2c3e50; color: white; display: flex; align-items: center; justify-content: center; }
+header { 
+    grid-area: header; 
+    background: #000000; 
+    color: white; 
+    display: flex; 
+    align-items: center; 
+    padding-left: 30px; 
+}
 
+aside { 
+    grid-area: aside; 
+    background: #f8f9fa; 
+    border-right: 1px solid #ddd;
+}
+
+main { 
+    grid-area: main; 
+    background: #ffffff; 
+    padding: 40px; 
+}
+
+footer { 
+    grid-area: footer; 
+    background: #1a1a1a; 
+    color: #888; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 0.9rem;
+}
+
+.menu-item {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    transition: 0.4s;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-item::before {
+    margin-right: 10px;
+    filter: grayscale(1);
+    transition: 0.3s;
+}
+
+.menu-item:hover {
+    background: #3498db;
+    color: white;
+    padding-left: 30px;
+}
+
+.menu-item:hover::before {
+    filter: grayscale(0);
+}
+
+
+.fade-in {
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.header-anim h1 {
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from { letter-spacing: 2px; color: #fff; }
+    to { letter-spacing: 5px; color: #3498db; }
+}
